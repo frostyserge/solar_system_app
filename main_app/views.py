@@ -21,5 +21,5 @@ class PlanetList(TemplateView):
         if name != None:
             context['planets'] = PrimaryPlanet.objects.filter(name__icontains=name)
         else:
-            context['cars'] = PrimaryPlanet.objects.all()
+            context['planets'] = PrimaryPlanet.objects.all()
         return context
