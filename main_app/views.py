@@ -2,6 +2,7 @@ from typing import Any, Dict
 from django.shortcuts import render
 from .models import PrimaryPlanet
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView
 
 
 # Create your views here.
@@ -23,3 +24,9 @@ class PlanetList(TemplateView):
         else:
             context['planets'] = PrimaryPlanet.objects.all()
         return context
+    
+class PlanetCreate(CreateView):
+    model = PrimaryPlanet
+    fields = ['name', 'img', 'description', 'distance_from_sun', 'year_length', 'type', 'moons']
+    template_name = 'planet_create.html'
+    success_url = '/primary_planets/'
