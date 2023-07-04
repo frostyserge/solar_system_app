@@ -8,4 +8,5 @@ urlpatterns = [
     path('primary_planets/<int:pk>/', views.PlanetDetail.as_view(), name='planet_detail'),
     path('primary_planets/<int:pk>/update', views.PlanetUpdate.as_view(), name='planet_update'),
     path('primary_planets/<int:pk>/delete', views.PlanetDelete.as_view(), name='planet_delete'),
+    path('primary_planets/<int:pk>/moons/new/', views.MoonCreate.as_view(), name='moon_create'),
 ]

@@ -1,6 +1,8 @@
 from typing import Any, Dict
 from django.urls import reverse
-from .models import PrimaryPlanet
+from django.shortcuts import redirect
+from .models import PrimaryPlanet, Moon
+from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
@@ -55,3 +57,15 @@ class PlanetDelete(DeleteView):
     model = PrimaryPlanet
     template_name = 'planet_confirm_delete.html'
     success_url = '/primary_planets/'
+
+class MoonCreate(View):
+    def post(self, request, pk):
+        name = request.POST.get('name')
+        img  = request.POST.get('img')
+        description = request.POST.get('description')
+        year_of_discovery = request.POST.get('year_of_discovery')
+        discovered_by = request.POST.get('discovered_by')
+        planet = PrimaryPlanet.objects.get(pk=pk)
+        Moon.objects.create(name=name, img=img, description=description, year_of_discovery=year_of_discovery, discovered_by=discovered_by, planet=planet)
+        return redirect('planet_detail', pk=pk)
+

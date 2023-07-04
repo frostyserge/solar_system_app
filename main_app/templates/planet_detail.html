@@ -24,7 +24,62 @@
     <hr class="hr" />
     <div class="detail__songs mb-5">
         <h3 class="title is-3">Moons</h3>
-    
+        <form class="mb-5" action="{% url 'moon_create' planet.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="title"
+                        placeholder="Name"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="title"
+                        placeholder="Image URL"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="length"
+                        placeholder="Short Description"
+                        min="1"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="number"
+                        name="length"
+                        placeholder="Year of Discovery"
+                        min="1"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="length"
+                        placeholder="Name of a Discoverer"
+                        min="1"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add Moon" />
+                </div>
+            </div>
+        </form>
         {% for moon in planet.moon.all %}
         <div class="moon">
           <span>{{forloop.counter}}</span>
@@ -33,7 +88,7 @@
             {% empty %}
         <article class="message">
           <div class="message-header">
-            <p>THis Planet Has No Moons</p>
+            <p>This Planet Has No Moons</p>
           </div>
         </article>
     
