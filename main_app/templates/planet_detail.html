@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% with planet=primaryplanet %}
+<div class="detail__img">
+    <img src="{{planet.img}}" alt="{{planet.name}}" class="img-fluid"/>
+</div>
+<div class="detail__name">
+    <h1 class="title">{{planet.name}}</h1>
+    <h2 class="lead">Type: {{planet.type}}</h2>
+</div>
+<div class="detail__container">
+    <div class="buttons">
+        <a href="{% url 'planet_update' planet.pk %}" class="button is-info">
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="{% url 'planet_delete' planet.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    <hr class="hr" />
+    <div class="detail__about">
+        <p class="lead">{{planet.description}} </p>
+    </div>
+</div>
+{% endwith %}
+{% endblock %}
