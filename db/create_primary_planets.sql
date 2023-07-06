@@ -30,7 +30,7 @@ INSERT INTO main_app_primaryplanet(
     )
 VALUES (
         'Venus',
-        'https://www.sciencefriday.com/wp-content/uploads/2021/06/venus.jpg',
+        'https://c.tadst.com/gfx/1200x675/4319.jpg?1',
         'It’s a cloud-swaddled planet named for a love goddess, often called Earth’s twin. But pull up a bit closer, and Venus turns hellish. Our nearest planetary neighbor, the second planet from the Sun, has a surface hot enough to melt lead. The atmosphere is so thick that, from the surface, the Sun is just a smear of light. In some ways it is more an opposite of Earth than a twin: Venus spins backward, has a day longer than its year, and lacks any semblance of seasons. It might once have been a habitable ocean world, like Earth, but that was at least a billion years ago. A runaway greenhouse effect turned all surface water into vapor, which then leaked slowly into space. The present-day surface of volcanic rock is blasted by high temperatures and pressures. Asked if the surface of Venus is likely to be life-bearing today, we can give a quick answer: a hard NO.',
         67483200,
         '225 Earth Days',
@@ -70,7 +70,7 @@ INSERT INTO main_app_primaryplanet(
     )
 VALUES (
         'Mars',
-        'https://solarsystem.nasa.gov/gltf_embed/2372',
+        'https://www.sciencenews.org/wp-content/uploads/2017/05/050217_ts_Mars_main_FREE.jpg',
         'Mars is no place for the faint-hearted. It’s dry, rocky, and bitter cold. The fourth planet from the Sun, Mars is one of Earth’s two closest planetary neighbors (Venus is the other). Mars is one of the easiest planets to spot in the night sky – it looks like a bright red point of light. Despite being inhospitable to humans, robotic explorers – like NASA’s new Perseverance rover – are serving as pathfinders to eventually get humans to the surface of the Red Planet.',
         154353608,
         '687 Earth Days',
@@ -161,6 +161,17 @@ VALUES (
 
 
 UPDATE main_app_primaryplanet SET img = REPLACE (
+
+'https://www.sciencenews.org/wp-content/uploads/2017/05/050217_ts_Mars_main_FREE.jpg');
+img,
+'https://solarsystem.nasa.gov/gltf_embed/2375',
+'https://www.astronomytrek.com/wp-content/uploads/2012/11/jupiter.png');
+img,
+'https://solarsystem.nasa.gov/gltf_embed/2355',
+'https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg');
+img,
+'https://solarsystem.nasa.gov/gltf_embed/2344',
+'https://upload.wikimedia.org/wikipedia/commons/c/c9/Uranus_as_seen_by_NASA%27s_Voyager_2_%28remastered%29_-_JPEG_converted.jpg');
 img,
 'https://solarsystem.nasa.gov/gltf_embed/2364',
 'https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg');
