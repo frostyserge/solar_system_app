@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for planet in planets %}
-<div class="card">
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-      <img src="{{planet.img}}" class="img-fluid"/>
-      <a href="#!">
-        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-      </a>
+<div class="container-fluid">
+  <div class="row d-flex align-items-center">
+    <div class="col-lg-4 col-md-12 mb-4 ">
+      <div class="card text-center ">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="{{planet.img}}" class="img-fluid"/>
+            <a href="{% url 'planet_detail' planet.pk %}">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{planet.name}}</h5>
+            <a href="{% url 'planet_detail' planet.pk %}" class="btn btn-primary">More</a>
+          </div>
+        </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">{{planet.name}}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="{% url 'planet_detail' planet.pk %}" class="btn btn-primary">More</a>
-    </div>
+  </div>
   </div>
   {% endfor %}
 {% endblock %}

@@ -1,15 +1,15 @@
 {% extends 'base.html' %} 
 {% block content %}
 {% with planet=primaryplanet %}
-<div class="detail__img">
+<div class="container">
     <img src="{{planet.img}}" alt="{{planet.name}}" class="img-fluid"/>
 </div>
-<div class="detail__name">
+<div class="container">
     <h1 class="title">{{planet.name}}</h1>
     <h2 class="lead">Type: {{planet.type}}</h2>
 </div>
 <div class="detail__container">
-    <div class="buttons">
+    <div class="container buttons">
         <a href="{% url 'planet_update' planet.pk %}" class="button is-info">
             <span class="icon">
                 <i class="fas fa-edit"></i>
@@ -22,61 +22,65 @@
         </a>
     </div>
     <hr class="hr" />
-    <div class="detail__songs mb-5">
+    <div class="container text-center mb-5">
+        <div class="detail__about">
+            <p class="lead">{{planet.description}} </p>
+        </div>
         <h3 class="title is-3">Moons</h3>
-        <form class="mb-5" action="{% url 'moon_create' planet.pk %}" method="post">
+        <form action="{% url 'moon_create' planet.pk %}" method="post">
             {% csrf_token %}
             <div class="field has-addons">
                 <div class="control">
-                    <input
-                        class="input"
+                    <textarea
+                        class="form-control"
                         type="text"
-                        name="title"
+                        name="name"
                         placeholder="Name"
+                        rows="1"
                         required
-                    />
+                    ></textarea>
                 </div>
                 <div class="control">
-                    <input
-                        class="input"
+                    <textarea
+                        class="form-control"
                         type="text"
-                        name="title"
+                        name="img"
                         placeholder="Image URL"
+                        rows="1"
                         required
-                    />
+                    ></textarea>
                 </div>
                 <div class="control">
-                    <input
-                        class="input"
+                    <textarea class="form-control"
+                    id="form4Example3" 
+                    rows="4" 
+                    placeholder="Description" 
+                    name="description" 
+                    required></textarea>
+                </div>
+                </div>
+                <div class="control">
+                    <textarea
+                        class="form-control"
                         type="text"
-                        name="length"
-                        placeholder="Short Description"
-                        min="1"
-                        required
-                    />
-                </div>
-                <div class="control">
-                    <input
-                        class="input"
-                        type="number"
-                        name="length"
+                        name="year_of_discovery"
                         placeholder="Year of Discovery"
-                        min="1"
+                        rows="1"
                         required
-                    />
+                    ></textarea>
                 </div>
                 <div class="control">
-                    <input
-                        class="input"
+                    <textarea
+                        class="form-control"
                         type="text"
-                        name="length"
-                        placeholder="Name of a Discoverer"
-                        min="1"
+                        name="discovered_by"
+                        placeholder="Discovered By"
+                        rows="1"
                         required
-                    />
+                    ></textarea>
                 </div>
                 <div class="control">
-                    <input class="button is-primary" type="submit" value="Add Moon" />
+                    <input class="btn btn-outline-success btn-rounded" type="submit" value="Add Moon" />
                 </div>
             </div>
         </form>
@@ -87,16 +91,12 @@
         </div>
             {% empty %}
         <article class="message">
-          <div class="message-header">
+          <div class="message-header text-center">
             <p>This Planet Has No Moons</p>
           </div>
         </article>
-    
         {% endfor %}
       </div>
-    <div class="detail__about">
-        <p class="lead">{{planet.description}} </p>
-    </div>
 </div>
 {% endwith %}
 {% endblock %}

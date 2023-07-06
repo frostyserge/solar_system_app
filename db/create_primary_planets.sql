@@ -158,3 +158,9 @@ VALUES (
         14,
         CURRENT_TIMESTAMP
     );
+
+
+UPDATE main_app_primaryplanet SET img = REPLACE (
+img,
+'https://solarsystem.nasa.gov/gltf_embed/2364',
+'https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg');

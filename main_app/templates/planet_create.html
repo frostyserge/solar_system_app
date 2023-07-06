@@ -1,14 +1,84 @@
 {% extends 'base.html' %} 
 {% block content %}
-<h1>Add an Artist</h1>
+{% with planet=primaryplanet %}
+<h1>Add a Planet</h1>
 
 <form method="post">
-<!-- Security Feature  -->
-  {% csrf_token %} 
-<!--  Generate inputs  -->
-  {{form.as_p}} 
-<!--  Submit form  -->
-  <input type="submit" value="Submit" />
+  {% csrf_token %}
+  <div class="field has-addons">
+      <div class="control">
+          <textarea
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="Name"
+              rows="1"
+              required
+          ></textarea>
+      </div>
+      <div class="control">
+          <textarea
+              class="form-control"
+              type="text"
+              name="img"
+              placeholder="Image URL"
+              rows="1"
+              required
+          ></textarea>
+      </div>
+      <div class="control">
+          <textarea class="form-control"
+          id="form4Example3" 
+          rows="4" 
+          placeholder="Description" 
+          name="description" 
+          required></textarea>
+      </div>
+      </div>
+      <div class="control">
+          <textarea
+              class="form-control"
+              type="number"
+              name="distance_from_sun"
+              placeholder="Distance from the Sun"
+              rows="1"
+              required
+          ></textarea>
+      </div>
+      <div class="control">
+          <textarea
+              class="form-control"
+              type="text"
+              name="year_length"
+              placeholder="Length of a Year"
+              rows="1"
+              required
+          ></textarea>
+      </div>
+      <div class="control">
+          <textarea
+              class="form-control"
+              type="text"
+              name="type"
+              placeholder="Planet Type"
+              rows="1"
+              required
+          ></textarea>
+      </div>
+      <div class="control">
+          <textarea
+              class="form-control"
+              type="text"
+              name="moons"
+              placeholder="Amount of Moons"
+              rows="1"
+              required
+          ></textarea>
+      </div>
+      <div class="control text-center mx-1">
+          <input class="btn btn-outline-success btn-rounded" type="submit" value="Add Planet" />
+      </div>
+  </div>
 </form>
-
+{% endwith %}
 {% endblock %}
